@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan Publik - Kabupaten Mimika</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #004a87;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        /* Navigation Styles */
+        .nav-container {
+            background-color: #003366;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #4d9feb;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #003366;
+            color: white;
+            padding: 2rem 1rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: #003366;
+                padding: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Pemerintah Kabupaten Mimika</h1>
+        <p>Layanan Publik Terpadu</p>
+    </header>
+
+    <nav class="nav-container">
+        <div class="navbar">
+            <button class="menu-toggle">☰</button>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section id="home">
+            <h2>Selamat Datang di Portal Layanan Publik</h2>
+            <p>Kabupaten Mimika memberikan pelayanan terbaik untuk masyarakat</p>
+        </section>
+
+        <section id="services" class="services-grid">
+            <article class="service-card">
+                <h3>Layanan Kesehatan</h3>
+                <p>Informasi fasilitas kesehatan dan layanan darurat</p>
+            </article>
+            <article class="service-card">
+                <h3>Layanan Pendidikan</h3>
+                <p>Pendaftaran sekolah dan informasi beasiswa</p>
+            </article>
+            <article class="service-card">
+                <h3>Layanan Administrasi</h3>
+                <p>Pengurusan dokumen kependudukan</p>
+            </article>
+        </section>
+
+        <section id="about">
+            <h2>Tentang Kabupaten Mimika</h2>
+            <p>Kabupaten Mimika adalah salah satu kabupaten di Provinsi Papua...</p>
+        </section>
+
+        <section id="contact">
+            <h2>Hubungi Kami</h2>
+            <form>
+                <input type="text" placeholder="Nama" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Pesan" required></textarea>
+                <button type="submit">Kirim Pesan</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2024 Pemerintah Kabupaten Mimika</p>
+        <p>Jl. Poros Timika - Kuala Kencana</p>
+        <p>Email: info@mimikakab.go.id</p>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
